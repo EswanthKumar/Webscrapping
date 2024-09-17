@@ -22,7 +22,7 @@ driver.get(url)
 
 time.sleep(5)
 
-element = driver.find_element(By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/li[1]/a[1]/div[1]/div[1]/div[1]")
+element = driver.find_element(By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/div[9]/li[1]/a[1]/div[1]/div[1]/div[1]")
 element.click()
 time.sleep(5)
 
@@ -41,13 +41,13 @@ data = []
 if main_tag:
     # print(main_tag, type(main_tag), len(main_tag))
     for tag in main_tag:
-        print(tag)
+        # print(tag)
         store_names = tag.find('h3')
         store_name = store_names.text
         # print(store_name)
 
         ratings = tag.find('span', class_ = "ag bs bt bu bv bw bx")
-        rating =ratings.text
+        rating = ratings.text
         # print(rating)
 
         delivery_timing = tag.find('span', class_="bo em bq dw eu er bw bu" )
@@ -61,7 +61,7 @@ if main_tag:
             'Delivery Timing': delivery_time
             })
         df = pd.DataFrame(data)
-        print(df)
+        # print(df)
 
             # Save the DataFrame to an Excel file
         df.to_excel('scraped_data.xlsx', index=False)
